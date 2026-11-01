@@ -1,0 +1,50 @@
+*{box-sizing:border-box}
+:root{color-scheme:dark;--bg:#10171d;--panel:#19232c;--panel2:#1b2731;--border:#2b3945;--muted:#91a2b1;--text:#e7edf3;--blue:#8295ff;--red:#ff817b;--green:#65c99a;--amber:#e8b65c}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;font-size:13px}
+.page{max-width:1600px;margin:0 auto;padding:14px 18px 28px}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+h1{font-family:"Barlow Condensed",Impact,sans-serif;font-size:30px;line-height:1.05;margin:0 0 4px;font-weight:800;letter-spacing:.1px}
+.subheading{margin:0;color:var(--muted);font-size:13px}
+.button{border:1px solid var(--border);background:#17212a;color:var(--text);padding:10px 13px;border-radius:7px;font:500 13px Inter;cursor:pointer}
+.button:hover{border-color:#53677a;background:#202d38}
+.button:disabled{opacity:.55;cursor:wait}
+.button.primary{background:var(--blue);border-color:var(--blue);color:#111827;font-weight:700}
+.notice{margin:12px 0 14px;color:var(--muted);font-size:12px;min-height:16px;line-height:1.5}
+.notice.error{color:var(--red)}
+.month-grid{display:grid;grid-template-columns:repeat(8,minmax(110px,1fr));gap:8px;margin:12px 0 19px}
+.month-card{background:var(--panel);border:1px solid var(--border);border-radius:7px;padding:9px 10px;min-width:0;cursor:pointer;text-align:left;color:var(--text)}
+.month-card:hover,.month-card.selected{border-color:var(--blue);background:#202b3a}
+.month-card strong{display:block;font-family:"Barlow Condensed",sans-serif;font-size:27px;line-height:1;color:var(--text)}
+.month-card:first-child strong{color:var(--red)}
+.month-card span{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+.meter{height:4px;background:#2a3946;border-radius:9px;margin-top:9px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--blue);border-radius:9px}
+.filter-block{margin:0 0 17px}
+.filter-block h2{font-size:11px;color:var(--muted);font-weight:600;margin:0 0 7px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{background:#18222b;color:var(--text);border:1px solid var(--border);border-radius:24px;padding:8px 12px;font:500 12px Inter;cursor:pointer}
+.chip b{color:#aab7c2;margin-left:4px}
+.chip.active{background:var(--blue);border-color:var(--blue);color:#101827}
+.chip.active b{color:#18213c}
+.controls{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;margin:17px 0 8px}
+input,select{width:100%;min-width:0;background:#18222b;border:1px solid var(--border);border-radius:7px;color:var(--text);padding:11px 12px;font:13px Inter;outline:none}
+input:focus,select:focus{border-color:var(--blue)}
+.table-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:8px 0 6px;color:var(--muted)}
+.toolbar-actions{display:flex;gap:5px;flex-wrap:wrap}
+.table-wrap{overflow:auto;border:1px solid var(--border);border-radius:8px;background:#172129}
+table{border-collapse:collapse;width:100%;min-width:1100px;text-align:left}
+thead{background:#1b2731;position:sticky;top:0;z-index:1}
+th{font-size:11px;color:#9cabb8;font-weight:600;white-space:nowrap}
+th,td{padding:10px 9px;border-bottom:1px solid #293641;vertical-align:top}
+td{font-size:12px;line-height:1.45}
+td.name{font-weight:700;min-width:145px}
+td.process{color:var(--blue);font-weight:700}
+.status{display:inline-block;padding:4px 8px;border-radius:20px;white-space:nowrap;font-size:10px;font-weight:700}
+.status.expired{background:#3b211f;color:var(--red)}
+.status.soon{background:#3b3020;color:var(--amber)}
+.status.valid{background:#19372e;color:var(--green)}
+.status.unknown{background:#2a3036;color:#b8c2ca}
+.empty{text-align:center;color:var(--muted);padding:30px}
+footer{color:#738493;font-size:11px;margin-top:13px}
+@media(max-width:1000px){.month-grid{grid-template-columns:repeat(4,minmax(110px,1fr))}}
+@media(max-width:650px){.page{padding:12px}.top{align-items:stretch}.top .button{align-self:flex-start}.month-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.controls{grid-template-columns:1fr}.table-toolbar{align-items:flex-start;flex-direction:column}.toolbar-actions{width:100%}.toolbar-actions .button{flex:1}}

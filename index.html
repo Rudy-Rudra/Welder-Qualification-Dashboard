@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10171d">
+  <title>Welder Qualification Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="top">
+      <div>
+        <h1>Welder qualification tracker</h1>
+        <p id="summary" class="subheading">Loading qualification records…</p>
+      </div>
+      <button id="refreshBtn" class="button">↻ Refresh data</button>
+    </header>
+
+    <div id="notice" class="notice" role="status">Connecting to the spreadsheet…</div>
+
+    <section id="monthCards" class="month-grid" aria-label="Expiry by month"></section>
+
+    <section class="filter-block">
+      <h2>Location</h2>
+      <div id="locationFilters" class="chips"></div>
+    </section>
+    <section class="filter-block">
+      <h2>Process</h2>
+      <div id="processFilters" class="chips"></div>
+    </section>
+
+    <section class="controls">
+      <input id="searchInput" type="search" placeholder="Search name, ID or WPS #" autocomplete="off">
+      <select id="nationalitySelect" aria-label="Filter by nationality"><option value="">All nationalities</option></select>
+      <select id="statusSelect" aria-label="Filter by status">
+        <option value="">All statuses</option>
+        <option value="Expired">Expired</option>
+        <option value="Expiring soon">Expiring within 30 days</option>
+        <option value="Valid">Valid</option>
+        <option value="No expiry date">No expiry date</option>
+      </select>
+    </section>
+
+    <section class="table-toolbar">
+      <span id="resultCount">0 qualifications</span>
+      <div class="toolbar-actions">
+        <button id="clearBtn" class="button">Clear filters</button>
+        <button id="exportBtn" class="button primary">Export <span id="exportCount">0</span> rows</button>
+      </div>
+    </section>
+
+    <section class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>ID #</th><th>Name</th><th>Process</th><th>Position</th><th>WPS #</th>
+          <th>F No.</th><th>Max. thickness</th><th>OD limit</th><th>Nationality</th>
+          <th>Location</th><th>Expiry date</th><th>Status</th>
+        </tr></thead>
+        <tbody id="tableBody"><tr><td colspan="12" class="empty">Loading…</td></tr></tbody>
+      </table>
+    </section>
+    <footer>Data source: Welder Qualification Record · Last refreshed <span id="lastUpdated">—</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
